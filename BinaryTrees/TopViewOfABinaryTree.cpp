@@ -34,7 +34,7 @@ class Solution {
         }
 
     void topView(Node * root) {
-        unordered_map<int, int> mymap;
+        map<int, int> mymap;
         queue<pair<Node*, int>> q;
         if(root==NULL)
         {
@@ -50,7 +50,6 @@ class Solution {
             if(mymap.find(val)==mymap.end())
                 {
                     mymap[val] = data;
-                    cout<<data<<" ";
                 }
             if(p.first->left)
             {
@@ -60,6 +59,10 @@ class Solution {
             {
                 q.push(make_pair(p.first->right, val+1));
             }
+        }
+	for(auto& it: mymap)
+        {
+            cout<<it.second<<" ";
         }
     }
 
